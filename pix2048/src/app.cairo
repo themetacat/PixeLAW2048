@@ -117,12 +117,6 @@ use core::array::ArrayTrait;
             core_actions.update_app(APP_KEY, APP_ICON, APP_MANIFEST);
         }
 
-        /// Put color on a certain position
-        ///
-        /// # Arguments
-        ///
-        /// * `position` - Position of the pixel.
-        /// * `new_color` - Color to set the pixel to.
         fn interact(self: @ContractState, default_params: DefaultParameters) {
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
@@ -149,25 +143,17 @@ use core::array::ArrayTrait;
                     self.move_down(default_params);
                 }
             }
-            // else if pixel.action == ''{
-            //     // assert(self.ownerless_space(default_params) == true, 'Not enough pixels');
-            //     self.init_game(default_params);
-            //     self.gen_random(default_params);
-            //     self.gen_random(default_params);
-            // }
-            // self.gen_random(default_params);
+ 
         }
 
         fn init_game(self: @ContractState, default_params: DefaultParameters){
-            '-------------------init_game'.print();
-            // Load important variables
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
             let player = core_actions.get_player_address(default_params.for_player);
             let system = core_actions.get_system_address(default_params.for_system);
             let timestamp = starknet::get_block_timestamp();
-            // Load the Pixel
+            
             let mut pixel = get!(world, (position.x, position.y), (Pixel));
             let caller_address = get_caller_address();
             let mut game = get!(world, (position.x, position.y), NumberGame);
@@ -323,7 +309,6 @@ use core::array::ArrayTrait;
 
         // random
         fn gen_random(self: @ContractState, default_params: DefaultParameters){
-            '------------------gen_random'.print();
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
@@ -396,7 +381,6 @@ use core::array::ArrayTrait;
         }
 
         fn move_right(self: @ContractState, default_params: DefaultParameters){
-            '-----------------move_right'.print();
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
@@ -541,7 +525,6 @@ use core::array::ArrayTrait;
         }
 
         fn move_left(self: @ContractState, default_params: DefaultParameters){
-            '-----------------move_left'.print();
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
@@ -681,7 +664,6 @@ use core::array::ArrayTrait;
         }
 
         fn move_up(self: @ContractState, default_params: DefaultParameters){
-            '-----------------move_up'.print();
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
@@ -815,7 +797,6 @@ use core::array::ArrayTrait;
         }
 
         fn move_down(self: @ContractState, default_params: DefaultParameters){
-            '-----------------move_down'.print();
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
@@ -985,8 +966,7 @@ use core::array::ArrayTrait;
 			check
 		}
 
-            fn is_game_over(self: @ContractState, default_params: DefaultParameters) -> bool {
-            '------------------is_game_over'.print();
+        fn is_game_over(self: @ContractState, default_params: DefaultParameters) -> bool {
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
