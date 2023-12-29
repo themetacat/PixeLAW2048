@@ -23,7 +23,7 @@ trait INumberActions<TContractState> {
 const APP_KEY: felt252 = 'brc2048';
 
 /// Core only supports unicode icons for now
-const APP_ICON: felt252 = 'U+1699';
+const APP_ICON: felt252 = 'U+1F4A0';
 
 /// prefixing with BASE means using the server's default manifest.json handler
 const APP_MANIFEST: felt252 = 'BASE/manifests/brc2048';
