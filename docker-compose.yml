@@ -1,0 +1,19 @@
+services:
+  pixelaw-core:
+    image: ghcr.io/pixelaw/core:0.0.61
+    container_name: pixelaw-core
+    ports:
+      - "5050:5050"
+      - "3000:3000"
+      - "8080:8080"
+      - "50051"
+    restart: unless-stopped
+    networks:
+      - pixelaw
+    environment:
+      - INVOKE_MAX_STEPS=14000000
+
+networks:
+  pixelaw:
+    driver: bridge
+
