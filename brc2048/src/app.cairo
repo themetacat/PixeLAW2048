@@ -133,15 +133,12 @@ mod brc2048_actions {
         }
 
         fn init_game(self: @ContractState, default_params: DefaultParameters){
-            '-------------------init_game'.print();
-            // Load important variables
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
             let player = core_actions.get_player_address(default_params.for_player);
             let system = core_actions.get_system_address(default_params.for_system);
             let timestamp = starknet::get_block_timestamp();
-            // Load the Pixel
             let mut pixel = get!(world, (position.x, position.y), (Pixel));
             let caller_address = get_caller_address();
             let mut game = get!(world, (position.x, position.y), NumberGame);
@@ -290,7 +287,6 @@ mod brc2048_actions {
 
         // random
         fn gen_random(self: @ContractState, default_params: DefaultParameters){
-            '------------------gen_random'.print();
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
@@ -374,7 +370,6 @@ mod brc2048_actions {
         }
 
         fn move_right(self: @ContractState, default_params: DefaultParameters){
-            '-----------------move_right'.print();
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
@@ -510,7 +505,6 @@ mod brc2048_actions {
         }
 
         fn move_left(self: @ContractState, default_params: DefaultParameters){
-            '-----------------move_left'.print();
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
@@ -641,7 +635,6 @@ mod brc2048_actions {
         }
 
         fn move_up(self: @ContractState, default_params: DefaultParameters){
-            '-----------------move_up'.print();
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
@@ -767,7 +760,6 @@ mod brc2048_actions {
         }
 
         fn move_down(self: @ContractState, default_params: DefaultParameters){
-            '-----------------move_down'.print();
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
@@ -930,7 +922,6 @@ mod brc2048_actions {
 		}
 
         fn is_game_over(self: @ContractState, default_params: DefaultParameters) -> bool {
-            '------------------is_game_over'.print();
             let world = self.world_dispatcher.read();
             let core_actions = get_core_actions(world);
             let position = default_params.position;
