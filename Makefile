@@ -22,7 +22,7 @@ upload_manifests:
 	cd pix2048; scarb run upload_manifest;
 
 start:
-	# make start_core;
+	make start_core;
 	make build_apps;
 	make migrate_apps;
 	make initialize_apps;
