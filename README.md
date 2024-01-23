@@ -1,6 +1,7 @@
 # PixeLAW 2048
 
 A fully on-chain 2048 based on PixeLAW(a pixel-based Autonomous World built on @Starknet using @ohayo_dojo)
+
 ![image](https://github.com/themetacat/PixeLAW2048/assets/5465932/890b0ab7-f71c-4330-9038-17b23a729ab5)
 
 ## Prerequisites
